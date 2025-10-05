@@ -1,9 +1,7 @@
 ```mermaid
 sequenceDiagram;
-    Alice;
-    Bob;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+    participant Alice;
+    participant Bob;
+    Alice->>Bob: A-->B;
+    ABob->>Alice: B-->C;
 ```
