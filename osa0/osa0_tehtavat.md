@@ -13,4 +13,5 @@ sequenceDiagram;
     B-->>-A: JavaScript file: main.js
     A->>+B: GET /exampleapp/data.json
     B-->>-A: JSON file: data.json
+    Note over A: Render page
 ```
