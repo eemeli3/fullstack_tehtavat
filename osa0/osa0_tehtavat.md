@@ -1,9 +1,7 @@
 ```mermaid
 sequenceDiagram;
-    participant Browser;
-    participant Server;
-    Browser->>Server: A-->B;
-    activate server;
-    Server->>Browser: B-->C;
-    deactivate server;
+    participant A as Browser;
+    participant B as Server;
+    A->>B: A-->B;
+    B->>A: B-->C;
 ```
