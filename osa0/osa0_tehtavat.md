@@ -11,7 +11,8 @@ sequenceDiagram;
     B-->>-A: CSS file: main.css
     A->>+B: GET /exampleapp/main.js
     B-->>-A: JavaScript file: main.js
+    Note over A: Start executing main.js
     A->>+B: GET /exampleapp/data.json
     B-->>-A: JSON file: data.json
-    Note over A: Render page
+    Note over A: Execute eventhandler, finish executing main.js
 ```
