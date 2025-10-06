@@ -14,5 +14,6 @@ sequenceDiagram;
     Note over A: Start executing main.js
     A->>+B: GET /exampleapp/data.json
     B-->>-A: JSON file: data.json
-    Note over A: Execute eventhandler, finish executing main.js
+    Note over A: Execute eventhandler
+    Note over A: Finish executing main.js
 ```
