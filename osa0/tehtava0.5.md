@@ -8,9 +8,9 @@ sequenceDiagram;
     B-->>-A: CSS file: main.css
     A->>+B: GET /exampleapp/spa.js
     B-->>-A: JavaScript file: spa.js
-    Note over A: Start executing main.js
+    Note over A: Start executing spa.js
     A->>+B: GET /exampleapp/data.json
     B-->>-A: JSON file: data.json
     Note over A: Execute eventhandler
-    Note over A: Finish executing main.js
+    Note over A: Finish executing spa.js
 ```
