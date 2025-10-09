@@ -6,8 +6,8 @@ sequenceDiagram;
     B-->>-A: HTML Document
     A->>+B: GET /exampleapp/main.css
     B-->>-A: CSS file: main.css
-    A->>+B: GET /exampleapp/main.js
-    B-->>-A: JavaScript file: main.js
+    A->>+B: GET /exampleapp/spa.js
+    B-->>-A: JavaScript file: spa.js
     Note over A: Start executing main.js
     A->>+B: GET /exampleapp/data.json
     B-->>-A: JSON file: data.json
