@@ -14,17 +14,17 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
    
-  const [selected, setSelected] = useState(0)
+  const [selected, setSelected] = useState(0) //State for selected anecdote
 
-  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
+  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0)) //state for vote counts
 
-  const incrementVotes = () => {
+  const incrementVotes = () => { //increase vote count for selected anecdote
     const copy = [...votes]
     copy[selected] += 1
     setVotes(copy)
   }
   
-  const maxIndex = votes.findIndex((element) => element === Math.max(...votes))
+  const maxIndex = votes.findIndex((element) => element === Math.max(...votes)) //index for most voted anecdote
 
   return (
     <div>
