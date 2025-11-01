@@ -75,6 +75,7 @@ const App = () => {
       name: newName,
       number: newNumber
     }
+    console.log("personObject is:", personObject)
     if (personObject.name === "") {// name field is empty
       alert("Please enter a name.")
       return
@@ -84,11 +85,11 @@ const App = () => {
       return
     }
     if (persons.find((element) => element.number === personObject.number)) {// number is already in phone book
-      alert(`The phone number "${newNumber}" is already added to phonebook`)
+      alert(`The phone number "${personObject.number}" is already added to phonebook`)
       return
     }
     if (persons.find((element) => element.name === personObject.name)) {// person is already in phone book
-      if (window.confirm(`${personObject.Name} is already added to phonebook, replace the old number with a new one?`)) {
+      if (window.confirm(`${personObject.name} is already added to phonebook, replace the old number with a new one?`)) {
         const index = persons.findIndex((element) => element.name === personObject.name)
         personService.update(persons[index].id, personObject)
           .then(response => {
