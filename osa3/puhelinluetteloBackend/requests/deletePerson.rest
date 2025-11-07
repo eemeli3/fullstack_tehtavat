@@ -1,1 +1,1 @@
-DELETE http://localhost:3001/api/persons/2780
+DELETE https://puhelinluettelo-hec0.onrender.com/api/persons/47503
