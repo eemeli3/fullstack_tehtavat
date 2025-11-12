@@ -145,7 +145,7 @@ const App = () => {
         .remove(id)
         .then(response => {
           setPersons([...persons].filter(
-            (element) => element.id !== response.id
+            (element) => element.id !== id
           ))
         })
         .catch(error => {
