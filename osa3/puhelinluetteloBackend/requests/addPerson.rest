@@ -1,7 +1,8 @@
-POST https://puhelinluettelo-hec0.onrender.com/api/persons
+POST http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-    "name": "Eetu Abramov",
-    "number": "46262-541515"
+    "name": "Teemu Etelä",
+    "number": "1456214-36262"
 }
+//POST https://puhelinluettelo-hec0.onrender.com/api/persons
