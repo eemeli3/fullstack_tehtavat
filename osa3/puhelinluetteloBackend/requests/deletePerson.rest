@@ -1,1 +1,2 @@
-DELETE https://puhelinluettelo-hec0.onrender.com/api/persons/47503
+//DELETE https://puhelinluettelo-hec0.onrender.com/api/persons/47503
+DELETE http://localhost:3001/api/persons/69143413e32f794d101f31a4
