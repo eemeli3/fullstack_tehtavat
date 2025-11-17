@@ -75,15 +75,6 @@ const App = () => {
       name: newName,
       number: newNumber
     }
-    console.log("personObject is:", personObject)
-    if (personObject.name === "") {// name field is empty
-      alert("Please enter a name.")
-      return
-    }
-    if (personObject.number === "") {// number field is empty
-      alert("Please enter a phone number.")
-      return
-    }
     if (persons.find((element) => element.number === personObject.number)) {// number is already in phone book
       alert(`The phone number "${personObject.number}" is already added to phonebook`)
       return
@@ -99,7 +90,11 @@ const App = () => {
           })
           .catch(error => {
             setIsGood(false)
-            setMessage(`Information of ${personObject.name} has already been removed from server`)
+            if (error.response.status === 404) {// the ID does not exist
+              setMessage(`The person ${personObject.name} has already been deleted`)
+            } else {
+              setMessage(error.response.data.error)
+            }
             setTimeout(() => {
               setMessage(null)
             }, 5000)
@@ -126,7 +121,8 @@ const App = () => {
       })
       .catch(error => {
         setIsGood(false)
-        setMessage(`Failed to add ${personObject.name}`)
+        console.log(error.response.data)
+        setMessage(error.response.data.error)
         setTimeout(() => {
           setMessage(null)
         }, 5000)
@@ -143,12 +139,12 @@ const App = () => {
     if (window.confirm(`Delete ${name} ?`)) {
       personService
         .remove(id)
-        .then(response => {
+        .then(() => {
           setPersons([...persons].filter(
             (element) => element.id !== id
           ))
         })
-        .catch(error => {
+        .catch(() => {
           setIsGood(false)
           setMessage(`Failed to remove ${name}`)
           setTimeout(() => {
