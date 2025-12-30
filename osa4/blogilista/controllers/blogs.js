@@ -1,18 +1,74 @@
 const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
+const { userExtractor } = require('../utils/middleware')
 
-blogsRouter.get('/', (request, response) => {
-  Blog.find({}).then((blogs) => {
-    response.json(blogs)
-  })
+blogsRouter.get('/', async (request, response) => {// get all blogs
+  const blogs = await Blog
+    .find({})
+    .populate('user', { username: 2, name: 1 })
+
+  response.json(blogs)
 })
 
-blogsRouter.post('/', (request, response) => {
-  const blog = new Blog(request.body)
+blogsRouter.post('/', userExtractor, async (request, response) => {// post new blog
+  const body = request.body
 
-  blog.save().then((result) => {
-    response.status(201).json(result)
+  const blog = new Blog({
+    title: body.title,
+    author: body.author,
+    url: body.url,
+    likes: !request.body.likes ? 0 : request.body.likes,
+    user: request.user._id
   })
+
+  if (blog.title && blog.url) {// blog has title and url
+    const savedBlog = await blog.save()
+    request.user.blogs = request.user.blogs.concat(savedBlog._id)
+    await request.user.save()
+
+    response.status(201).json(savedBlog)
+  }
+  else {
+    response.status(400).end()
+  }
+})
+
+blogsRouter.delete('/:id', userExtractor, async (request, response) => {// delete blog
+  try {// blog passes authorization
+    const blog = await Blog.findById(request.params.id)
+    if (!blog.title) {// blog does not exist
+      response.status(204).end()
+    }
+    if (blog.user.toString() !== request.user._id.toString()) {// user is not allowed to delete blog
+      return response.status(401).json({ error: 'unauthorized user' })
+    }
+    await Blog.findByIdAndDelete(request.params.id)
+    response.status(204).end()
+  } catch {
+    response.status(204).end()
+  }
+})
+
+blogsRouter.put('/:id', async (request, response) => {// change blog
+  const { title, author, url, likes } = request.body
+  
+  const getBlog = async (id) => {
+    try {
+      const blog = await Blog.findById(id)
+      return blog
+    } catch {
+      response.status(404).end()
+    }
+  }
+
+  const blog = await getBlog(request.params.id)
+  blog.title = title
+  blog.author = author
+  blog.url = url
+  blog.likes = likes
+
+  const returnedBlog = await blog.save()
+  response.json(returnedBlog)
 })
 
 module.exports = blogsRouter
