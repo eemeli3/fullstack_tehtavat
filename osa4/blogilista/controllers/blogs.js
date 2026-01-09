@@ -42,7 +42,9 @@ blogsRouter.delete('/:id', userExtractor, async (request, response) => {// delet
     if (blog.user.toString() !== request.user._id.toString()) {// user is not allowed to delete blog
       return response.status(401).json({ error: 'unauthorized user' })
     }
-    await Blog.findByIdAndDelete(request.params.id)
+    await Blog.findByIdAndDelete(request.params.id) // delete blog
+    request.user.blogs = request.user.blogs.filter( blogId => blogId.toString() !== request.params.id )
+    await request.user.save() // remove blog id from user profile
     response.status(204).end()
   } catch {
     response.status(204).end()

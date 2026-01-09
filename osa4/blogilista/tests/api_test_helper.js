@@ -3,67 +3,95 @@ const User = require("../models/user")
 
 const initialBlogs = [// initial blogs for testing
   {
-    _id: "69496219d0c58549a4d9c450",
-    title: "New blog",
-    author: "YYYAAAAAH",
-    url: "http://someurl1009.com/",
-    likes: 7,
+    _id: "695c3a0f1bf14c3ccbfc6cb7",
+    title: "Hello world",
+    author: "eager Token",
+    url: "http://javascript/tokentest",
+    likes: 10001,
     user: '694141ed20a10336de0ddb76',
     __v: 0
   },
   {
-    _id: "694962c3d0c58549a4d9c454",
-    title: "How to peel onions",
-    author: "Petteri",
-    url: "https://bestUrl.com/prettyUrl",
-    likes: 5,
+    _id: "695c3b2a1bf14c3ccbfc6cbb",
+    title: "The journey to the moon",
+    author: "Austronaut",
+    url: "http://spacetalks/4ad3453453sds435",
+    likes: 0,
     user: '694141ed20a10336de0ddb76',
     __v: 0
   },
   {
-    _id: "6949631ad0c58549a4d9c458",
-    title: "Comics here",
-    author: "Wisest",
-    url: "http://blogarchive.com/comicshere",
-    likes: 12,
-    user: '694140fc20a10336de0ddb74',
+    _id: "695c3b6d1bf14c3ccbfc6cbf",
+    title: "Tokens, tokens, tokens",
+    author: "Pete",
+    url: "http://forums/tokenstokenstokens",
+    likes: 0,
+    user: '694141ed20a10336de0ddb76',
     __v: 0
   },
   {
-    _id: "6949680f23be7912c7bdf78a",
-    title: "Great New Blog",
-    author: "ExpiredToken",
-    url: "http://javascript.com/tokenpractice",
-    likes: 12,
-    user: '694141ed20a10336de0ddb76',
+    _id: "695c3bd61bf14c3ccbfc6cc4",
+    title: "The greatest blog",
+    author: "UnkownAuthor",
+    url: "http://blogspace/thegreatestblog",
+    likes: 89,
+    user: '695c39a31bf14c3ccbfc6cb4',
     __v: 0
-  }, 
+  },
+  {
+    _id: "695c3d951bf14c3ccbfc6ccb",
+    title: "New blogspaces",
+    author: "fred",
+    url: "http://forum/dicussions/a324da324234",
+    likes: 1,
+    user: '695c3d241bf14c3ccbfc6cc7',
+    __v: 0
+  },
+  {
+    _id: "695c3db51bf14c3ccbfc6ccf",
+    title: "Javascript and node",
+    author: "fred",
+    url: "http://forum/dicussions/a324da345345",
+    likes: 1,
+    user: '695c3d241bf14c3ccbfc6cc7',
+    __v: 0
+  },
 ]
 
 const initialUsers = [// initial users for testing
-  {
-    username: 'merja',
-    name: 'Merja Maija',
-    _id: '694140fc20a10336de0ddb74',
-    passwordHash: '$2b$10$Et4pXXFIIY6O30sh0GhI/egk.rwXX2SBDSQIiG0oKxPeYTgR008Z.',
-    blogs: [
-      '6949631ad0c58549a4d9c458',
-    ],
-    __v: 0
-  },
   {
     username: 'pete',
     name: 'Petteri Keka',
     _id: '694141ed20a10336de0ddb76',
     passwordHash: '$2b$10$H3XiN/els.PmSGvXclQiAeD.8nwbvKvD9/SgFdxUQpQ0FicULQxoy',
     blogs: [
-      '69496219d0c58549a4d9c450',
-      '694962c3d0c58549a4d9c454',
-      '6949680f23be7912c7bdf78a',
-      '69497cbd543898a621ed7b8f',
+      '695c3a0f1bf14c3ccbfc6cb7',
+      '695c3b2a1bf14c3ccbfc6cbb',
+      '695c3b6d1bf14c3ccbfc6cbf',
     ],
     __v: 0
-  }
+  },
+  {
+    username: 'maija',
+    name: 'maija tee',
+    _id: '695c39a31bf14c3ccbfc6cb4',
+    passwordHash: '$2b$10$PRXihm8bISE61MFs/rC.zuNxkcardM6cUgtPDXttQpKHc25dJR1M.',
+    blogs: [
+      '695c3bd61bf14c3ccbfc6cc4',
+    ],
+    __v: 0
+  },
+  {
+    username: 'fred',
+    name: 'Fred Friend',
+    _id: '695c3d241bf14c3ccbfc6cc7',
+    passwordHash: '$2b$10$Hfad7n0vpdYNykRgfLXdcuOXEtvZFM6t3DfXJTIaGPA8Ct80z5Mxi',
+    blogs: [
+      '695c3d951bf14c3ccbfc6ccb',
+      '695c3db51bf14c3ccbfc6ccf'
+    ],
+    __v: 0
+  },
 ]
 
 const includesBlog = (blogs, refBlog) => {// function for checking if refblog is in blogs
