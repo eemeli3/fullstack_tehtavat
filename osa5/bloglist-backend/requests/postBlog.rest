@@ -1,0 +1,12 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZyZWQiLCJpZCI6IjY5NWMzZDI0MWJmMTRjM2NjYmZjNmNjNyIsImlhdCI6MTc2NzY1MjY2M30.dAhxoUH3jKOSCPQ2JoJtNfi_tnpARbOuTZoEjhNEg74
+
+{
+  "title": "Javascript and node",
+  "author": "fred",
+  "url": "http://forum/dicussions/a324da345345",
+  "likes": 1,
+  "user": "695c3d241bf14c3ccbfc6cc7"
+}
+
