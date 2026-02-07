@@ -1,0 +1,8 @@
+PUT http://localhost:3001/anecdotes/41676
+Content-Type: 'application/json'
+
+{
+  "id": "41676",
+  "content": "new anecdotess",
+  "votes": 1 
+}
