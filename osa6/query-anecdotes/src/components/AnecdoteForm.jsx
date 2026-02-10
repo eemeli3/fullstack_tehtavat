@@ -1,9 +1,15 @@
-const AnecdoteForm = () => {
+const AnecdoteForm = ({ newAnecdoteMutation }) => {
+  const getId = () => (Math.random() * 1000000).toFixed(0)
+  
   const onCreate = (event) => {
     event.preventDefault()
     const content = event.target.anecdote.value
     event.target.anecdote.value = ''
-    console.log('new anecdote')
+    newAnecdoteMutation.mutate({
+      content,
+      id: getId(),
+      votes: 0,
+    })
   }
 
   return (
