@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBldGUiLCJpZCI6IjY5YTFhZjg4NGQ4ZTI3ZTllM2UzZWJhYiIsImlhdCI6MTc3MjIxMDA1Mn0.KeXJu7FqgXn7BNMHLUC1jNQxRS3K-bQsn-HEsjcyhPY
+
+{
+  "title": "Get more practise",
+  "author": "Pete",
+  "url": "http://forum/dicussions/getmorepractise",
+  "likes": 0,
+  "user": "69a1af884d8e27e9e3e3ebab"
+}
